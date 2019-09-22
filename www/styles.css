@@ -1,0 +1,95 @@
+body {
+    font-family: sans-serif;
+    max-width: 20em;
+    margin: 0 auto;
+}
+
+#timer,
+#settings {
+}
+#timer img {
+    width: 100%;
+    transition: transform 1s ease-in-out;
+}
+#timer p {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+
+body#going-clockwise #timer img {
+    transform: scaleX(-1);
+}
+body#going-clockwise .clockwise,
+body#going-anticlockwise .anticlockwise {
+    display: inline;
+}
+body#going-clockwise .anticlockwise,
+body#going-anticlockwise .clockwise {
+    display: none;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 1em 0 0;
+}
+p {
+    margin: 0;
+}
+.hidden {
+    display: none;
+}
+
+input {
+    width: 3em;
+}
+input:focus {
+    background: #ffa;
+}
+input:invalid {
+    background: #ffcaca;
+}
+
+p.buttons {
+    margin: 0 auto;
+    width: 12em;
+}
+button {
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: none;
+    border: none;
+    font-size: 4em;
+}
+button#resume {
+    margin-left: 1.5em;
+}
+body.running button#stop,
+body.running button#pause,
+body.paused button#resume,
+body.stopped button#start {
+    display: inline-block;
+}
+
+#warning {
+    margin: 1em 0;
+    padding: 0.5em;
+    background: #ffcaca;
+    color: #800;
+    border: 0.1em solid #800;
+    border-radius: 0.5em;
+}
+#details {
+    font-size: 0.7em;
+    margin-top: 1em;
+}
+
+#debug {
+    opacity: 0.2;
+    padding-left: 2em;
+    text-indent: -2em;
+}
