@@ -3,14 +3,14 @@
 
 <head>
 <title>Pigs timer</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body id="going-clockwise" class="stopped">
+<body id="going-clockwise" class="stopped" onload="onLoad()">
 
 <div id="timer">
     <p>Going <span class="clockwise">clockwise</span><span class="anticlockwise">anti-clockwise</span></p>
-    <img src="pig-left.png" alt="">
+    <img src="img/pig-left.png" alt="">
 </div>
 
 <div id="settings">
@@ -36,8 +36,9 @@
     <p id="previous">Previous times: </p>
 </div>
 
-<audio src="pig.mp3" type="audio/mpeg"></audio>
+<audio src="img/pig.mp3" type="audio/mpeg"></audio>
 
-<script type="application/javascript" src="timer.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
 </body>
 </html>

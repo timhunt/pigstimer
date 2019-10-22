@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="uk.me.timhunt.pigstimer" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Pigs timer</name>
+    <description>
+        For managing the direction of play in games. Reversage!
+    </description>
+    <author email="T.J.Hunt@open.ac.uk" href="https://tjhunt.blogspot.com">
+        Tim Hunt
+    </author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <platform name="android">
+    </platform>
+    <platform name="ios">
+    </platform>
+</widget>

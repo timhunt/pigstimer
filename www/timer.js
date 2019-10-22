@@ -148,6 +148,20 @@ function buttonClicked(e) {
             break;
     }
 }
+
+/**
+ * Handle when one the timer is clicked.
+ *
+ * Reverse direction, if stopped or paused.
+ *
+ * @param e {Event} the event being handled.
+ */
+function timerClicked(e) {
+    if (document.body.className === 'stopped' || document.body.className === 'paused') {
+        reverseDirection();
+    }
+}
+
 /**
  * Initialise the event handlers on the UI.
  */
@@ -158,6 +172,7 @@ function setupEventHandlers() {
     container.addEventListener('change', editingFinished);
     container.addEventListener('keypress', editingCancelled);
     container.addEventListener('click', buttonClicked);
+    document.getElementById('timer').addEventListener('click', timerClicked);
 }
 
 /**
@@ -275,12 +290,19 @@ function updateTimer() {
  */
 function timeFinished() {
     playPigSound();
+    reverseDirection();
+    startTimer();
+}
+
+/**
+ * Reverse the direction.
+ */
+function reverseDirection() {
     if (document.body.id.includes('anti')) {
         document.body.id = 'going-clockwise';
     } else {
         document.body.id = 'going-anticlockwise';
     }
-    startTimer();
 }
 
 /**
