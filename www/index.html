@@ -33,16 +33,47 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>Pigs timer</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+
+        <div id="outer" class="going-clockwise stopped">
+
+            <h1 id="label">Going <span class="clockwise">clockwise</span><span class="anticlockwise">anti-clockwise</span></h1>
+
+            <div id="image">
+                <img src="img/pig-left.png" alt="">
             </div>
+
+            <div id="controls">
+                <div id="buttons"><button type="button" id="stop">⏹</button><button type="button" id="start">▶️︎</button><button type="button" id="pause">︎⏸</button><button type="button" id="resume">▶️︎</button></div>
+                <div id="settings">
+                    <p><label for="min">Minimum time <input type="number" id="min" name="min" value="0.2" required min="0" max="6.9" step="0.1"> minutes</label></p>
+                    <p><label for="mean">Average time <input type="number" id="mean" name="mean" value="4" required min="0.1" max="19.9" step="0.1"> minutes</label></p>
+                    <p><label for="max">Maximum time <input type="number" id="max" name="max" value="15" required min="7.1" step="0.1"> minutes</label></p>
+                </div>
+            </div>
+
         </div>
+
+        <div id="warning" class="hidden">
+            <p>Warning: playing sounds was blocked by your web browser. You need to enable it.</p>
+            <p id="details"></p>
+        </div>
+
+        <audio src="img/pig.mp3" type="audio/mpeg"></audio>
+
+        <div id="debug">
+            <h2>Debug</h2>
+            <p>Total time: <span id="totaltime">-</span></p>
+            <p>Time left: <span id="timeleft">-</span></p>
+            <p>Generalized Pareto distribution parameters<br>
+                μ = <span id="mu"></span>,<br>
+                σ = <span id="sigma"></span>,<br>
+                ξ = <span id="xi"></span>.</p>
+            <p id="previous">Previous times: </p>
+        </div>
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
