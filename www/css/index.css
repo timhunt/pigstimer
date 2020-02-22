@@ -18,6 +18,7 @@
  */
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    box-sizing: border-box;
 }
 
 body {
@@ -33,21 +34,24 @@ body {
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
     width: 100%;
+    overflow: hidden;
 }
 
 #outer {
-    width: 100%;
-    height: 100%;
+    margin: 5%;
+    width: 90%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
 
 #label {
     flex: none;
     text-align: center;
     font-size: 2em;
-    margin: 0.5em 0;
+    margin: 0 0 0.5em;
 }
 .going-clockwise .anticlockwise,
 .going-anticlockwise .clockwise {
@@ -69,25 +73,33 @@ body {
     transform: scaleX(-1);
 }
 
-#controls {
-    flex: none;
+/* Landscape layout (with min-width) */
+@media screen and (max-aspect-ratio: 2/3) {
+    #image {
+        flex: none;
+    }
 }
 
 #buttons {
-    width: 12em;
+    flex: none;
 }
 button {
     display: none;
     margin: 0;
     padding: 0;
-    width: 1.5em;
-    height: 1.5em;
+    width: 6em;
+    height: 6em;
     background: none;
     border: none;
-    font-size: 4em;
+}
+button img {
+    width: 80%;
+}
+button#start {
+    margin-right: 6em;
 }
 button#resume {
-    margin-left: 1.5em;
+    margin-left: 6em;
 }
 .running button#stop,
 .running button#pause,
@@ -96,8 +108,11 @@ button#resume {
     display: inline-block;
 }
 
+#settings {
+    flex: none;
+}
 input {
-    width: 3em;
+    width: 4em;
 }
 input:focus {
     background: #ffa;
