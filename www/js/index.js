@@ -282,6 +282,7 @@ function PigsTimer() {
         displayDuration('totaltime', currentDuration);
         document.getElementById('previous').insertAdjacentText('beforeend',
             ' ' + formatDuration(currentDuration) + ',');
+        window.plugins.insomnia.keepAwake()
     }
 
     /**
@@ -293,6 +294,7 @@ function PigsTimer() {
         timer = null;
         nextEndTime = null;
         displayDuration('totaltime', null);
+        window.plugins.insomnia.allowSleepAgain()
     }
 
     /**
@@ -303,6 +305,7 @@ function PigsTimer() {
         clearTimeout(timer);
         timer = null;
         currentDuration = nextEndTime - Date.now();
+        window.plugins.insomnia.allowSleepAgain()
     }
 
     /**
@@ -312,6 +315,7 @@ function PigsTimer() {
         setRunningState('running');
         timer = setTimeout(timeFinished, currentDuration);
         nextEndTime = Date.now() + currentDuration;
+        window.plugins.insomnia.keepAwake()
     }
 
     /**
